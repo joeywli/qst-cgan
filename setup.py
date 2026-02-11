@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 
-requires = ["tensorflow", "tensorflow_addons", "qutip", "tqdm"]
+requires = ["tensorflow", "qutip", "tqdm"]
 packages = find_packages(
     where="qst_cgan", exclude=["*.tests", "*.tests.*", "tests.*", "tests"]
 )

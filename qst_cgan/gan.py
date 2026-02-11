@@ -2,18 +2,14 @@
 Bigger GAN network
 """
 import tensorflow as tf
-import tensorflow_addons as tfa
-
-from tqdm.auto import tqdm
-
 
 from qst_cgan.ops import (
     clean_cholesky,
     density_matrix_from_T,
     batched_expect,
     convert_to_complex_ops,
+    instance_normalization,
 )
-
 
 class DensityMatrix(tf.keras.layers.Layer):
     """
@@ -113,12 +109,12 @@ def Generator(hilbert_size, num_points, noise=None):
     x = tf.keras.layers.Conv2DTranspose(
         64, 4, use_bias=False, strides=2, padding="same", kernel_initializer=initializer
     )(x)
-    x = tfa.layers.InstanceNormalization(axis=3)(x)
+    x = instance_normalization(axis=3)(x)
     x = tf.keras.layers.LeakyReLU()(x)
     x = tf.keras.layers.Conv2DTranspose(
         64, 4, use_bias=False, strides=1, padding="same", kernel_initializer=initializer
     )(x)
-    x = tfa.layers.InstanceNormalization(axis=3)(x)
+    x = instance_normalization(axis=3)(x)
     x = tf.keras.layers.LeakyReLU()(x)
     x = tf.keras.layers.Conv2DTranspose(
         32, 4, use_bias=False, strides=1, padding="same", kernel_initializer=initializer

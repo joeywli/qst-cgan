@@ -1,9 +1,8 @@
-matplotlib==3.4.2
-numpy
-opt-einsum==3.3.0
-qutip==4.6.2
-scipy
-tensorflow
-tensorflow-addons
-tensorflow-estimator
-tqdm==4.61.2
+matplotlib==3.10.8
+numpy==2.4.2
+opt_einsum==3.4.0
+qutip==5.2.3
+scipy==1.16.3
+tensorflow==2.20.0
+tensorflow-estimator==2.15.0
+tqdm==4.67.3

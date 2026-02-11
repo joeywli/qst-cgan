@@ -190,3 +190,9 @@ def tf_fidelity(A, B):
     temp2 = tf.matmul(temp, sqrtmA)
     fidel = tf.linalg.trace(tf.linalg.sqrtm(temp2)) ** 2
     return tf.math.real(fidel)
+
+# Equal, sources:
+# - https://github.com/tensorflow/addons/blob/master/tensorflow_addons/layers/normalizations.py#L297
+# - https://www.tensorflow.org/api_docs/python/tf/keras/layers/GroupNormalization
+def instance_normalization(x, **kwargs):
+    return tf.keras.layers.GroupNormalization(groups=-1, **kwargs)(x)
