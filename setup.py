@@ -1,12 +1,8 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 requires = ["tensorflow", "qutip", "tqdm"]
-packages = find_packages(
-    where="qst_cgan", exclude=["*.tests", "*.tests.*", "tests.*", "tests"]
-)
-
 
 setup(
     name="qst_cgan",
@@ -14,6 +10,6 @@ setup(
     description="Quantum state tomography with conditional generative adversarial networks",
     author="Shahnawaz Ahmed",
     author_email="shahnawaz.ahmed95@gmail.com",
-    packages=packages,
+    packages=["qst_cgan"],
     install_requires=requires,
 )
